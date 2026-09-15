@@ -1,0 +1,130 @@
+/* Design System — MURAD | Tokens from DESIGN.md */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --charcoal: #1B1815;
+  --espresso: #3C2E26;
+  --ivory: #F2ECE0;
+  --paper: #F8F4EA;
+  --dust: #96A9B6;
+  --gold: #B49468;
+  --hair: #D9CFBE;
+  --muted: #6B6154;
+
+  --t-giant: clamp(4.5rem, 20vw, 15rem);
+  --t-d1: clamp(3rem, 9vw, 7rem);
+  --t-d2: clamp(2.25rem, 5.5vw, 4rem);
+  --t-h3: clamp(1.6rem, 3vw, 2.4rem);
+  --t-lead: clamp(1.125rem, 2.2vw, 1.4rem);
+  --t-body: 1.0625rem;
+  --t-small: 0.9rem;
+  --t-micro: 0.72rem;
+
+  --e-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --e-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --d-fast: 240ms;
+  --d-base: 520ms;
+  --d-slow: 900ms;
+  --d-cine: 1400ms;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ivory);
+}
+
+body {
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-family: "Archivo", system-ui, sans-serif;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* RTL handling */
+html[dir="rtl"] body {
+  font-family: "Amiri", serif;
+}
+
+/* Display fonts */
+.font-display {
+  font-family: "Bodoni Moda", serif;
+  letter-spacing: -0.02em;
+  line-height: 0.85;
+  text-wrap: balance;
+}
+
+.font-arabic-display {
+  font-family: "Aref Ruqaa", serif;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Focus states */
+*:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Hairlines */
+.hairline {
+  border-color: var(--hair);
+}
+
+/* Gold accent - never for text */
+.text-gold-accent {
+  color: var(--gold);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--hair);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--charcoal);
+  color: var(--ivory);
+  padding: 8px 16px;
+  z-index: 100;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.skip-link:focus {
+  top: 0;
+}

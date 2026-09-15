@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MURAD — Brand Book · v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Prata&family=Archivo:wght@400;500;600;700&family=Amiri:ital@0;1&family=Aref+Ruqaa:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --charcoal:#1B1815; --espresso:#3C2E26; --ivory:#F2ECE0; --paper:#F8F4EA;
+  --dust:#96A9B6; --gold:#B49468; --hair:#D9CFBE; --muted:#6B6154;
+  --e-out:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--charcoal);font-family:"Archivo",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.7}
+.did{font-family:"Bodoni Moda",serif}.ar{font-family:"Aref Ruqaa",serif}.amiri{font-family:"Amiri",serif}.mono{font-family:"JetBrains Mono",monospace}
+.u{text-transform:uppercase;letter-spacing:.26em}
+
+/* chrome */
+.frame{position:fixed;inset:16px;border:1px solid var(--hair);pointer-events:none;z-index:40}
+.corner{position:fixed;width:8px;height:8px;border:1px solid var(--charcoal);z-index:41}
+.c1{top:12px;left:12px}.c2{top:12px;right:12px}.c3{bottom:12px;left:12px}.c4{bottom:12px;right:12px}
+.rail{position:fixed;top:50%;transform:translateY(-50%);font-family:"JetBrains Mono";font-size:10px;letter-spacing:.3em;color:var(--muted);z-index:41;writing-mode:vertical-rl}
+.railL{left:20px;transform:translateY(-50%) rotate(180deg)}.railR{right:20px}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--gold);width:0;z-index:60}
+
+.page{max-width:1240px;margin:0 auto;padding:0 clamp(28px,6vw,90px)}
+section{position:relative;padding:clamp(84px,15vh,190px) 0;border-bottom:1px solid var(--hair)}
+.head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:clamp(30px,6vh,64px);flex-wrap:wrap;gap:10px}
+.idx{font-family:"JetBrains Mono";font-size:12px;color:var(--gold);letter-spacing:.2em}
+.sec-t{font-family:"Bodoni Moda";font-weight:500;font-size:clamp(2rem,5.4vw,3.6rem);line-height:1}
+.lbl{font-family:"JetBrains Mono";font-size:12px;letter-spacing:.2em;color:var(--muted)}
+.note{color:var(--muted);max-width:66ch;line-height:1.95;font-size:15px}
+.gold-rule{height:1px;background:var(--gold);opacity:.6;margin:clamp(20px,4vh,40px) 0}
+
+/* COVER */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.cover .top{display:flex;justify-content:space-between;font-family:"JetBrains Mono";font-size:12px;letter-spacing:.14em;color:var(--muted);margin-bottom:auto;padding-top:clamp(40px,8vh,90px)}
+.kick{font-family:"Amiri";font-size:clamp(1rem,2.4vw,1.5rem);color:var(--espresso);margin-bottom:6px}
+.giant{font-family:"Bodoni Moda";font-weight:500;font-size:clamp(4.5rem,22vw,16rem);line-height:.8;letter-spacing:-.025em}
+.giant sup{font-family:"JetBrains Mono";font-size:.08em;vertical-align:super;color:var(--gold)}
+.subrow{display:flex;flex-wrap:wrap;gap:6px 26px;margin-top:24px;font-family:"JetBrains Mono";font-size:12px;letter-spacing:.1em;color:var(--espresso)}
+.subrow span{position:relative;padding-inline-start:15px}
+.subrow span::before{content:"";position:absolute;inset-inline-start:0;top:50%;width:5px;height:5px;background:var(--gold);transform:translateY(-50%) rotate(45deg)}
+.cover .bottom{margin-top:auto;padding-bottom:clamp(30px,6vh,70px);display:flex;justify-content:space-between;font-family:"JetBrains Mono";font-size:12px;color:var(--muted);letter-spacing:.12em}
+
+/* TOC */
+.toc{display:grid;grid-template-columns:repeat(2,1fr);gap:2px 40px}
+@media(max-width:680px){.toc{grid-template-columns:1fr}}
+.toc a{display:flex;justify-content:space-between;gap:14px;text-decoration:none;color:var(--charcoal);padding:14px 0;border-bottom:1px solid var(--hair);font-size:15px;align-items:baseline;transition:color .3s var(--e-out)}
+.toc a:hover{color:var(--gold)}
+.toc a .n{font-family:"JetBrains Mono";font-size:12px;color:var(--muted)}
+.toc a .dots{flex:1;border-bottom:1px dotted var(--hair);margin:0 4px;transform:translateY(-4px)}
+
+/* COLOR */
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px;border:1px solid var(--charcoal)}
+.sw{padding:20px;min-height:210px;display:flex;flex-direction:column;justify-content:space-between}
+.sw .nm{font-family:"Bodoni Moda";font-size:1.3rem}
+.sw .hx{font-family:"JetBrains Mono";font-size:12px;letter-spacing:.06em;opacity:.85}
+.sw .ro{font-size:12px;opacity:.72;margin-top:4px;line-height:1.5}
+.dodont{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:34px}
+@media(max-width:680px){.dodont{grid-template-columns:1fr}}
+.dd{border:1px solid var(--hair);padding:20px;background:var(--paper)}
+.dd h4{font-family:"JetBrains Mono";font-size:12px;letter-spacing:.2em;margin-bottom:12px}
+.dd.no h4{color:#9a5b4d}.dd.yes h4{color:#5c6e52}
+.dd ul{list-style:none;font-size:14px;color:var(--muted);line-height:2}
+.dd li::before{content:"— ";color:var(--gold)}
+
+/* TYPE */
+.tgiant{font-family:"Bodoni Moda";font-weight:500;font-size:clamp(4rem,17vw,13rem);line-height:.82;letter-spacing:-.02em}
+.scale div{border-top:1px solid var(--hair);padding:16px 0;display:flex;align-items:baseline;gap:22px}
+.scale .t{font-family:"JetBrains Mono";font-size:10px;color:var(--muted);width:140px;flex:none;letter-spacing:.08em}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:36px}
+@media(max-width:760px){.pair{grid-template-columns:1fr}}
+.pc{border:1px solid var(--hair);padding:26px;background:var(--paper)}
+
+/* SPACING */
+.spacescale{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap;margin-top:20px}
+.spacescale .bar{background:var(--gold);opacity:.7}
+.spacescale .u2{text-align:center;font-family:"JetBrains Mono";font-size:9px;color:var(--muted);margin-top:6px}
+
+/* GRID demo */
+.griddemo{border:1px solid var(--charcoal);height:200px;position:relative;overflow:hidden;background:var(--paper);
+  background-image:linear-gradient(90deg,var(--hair) 1px,transparent 1px);background-size:calc(100%/12) 100%}
+.griddemo .m{position:absolute;top:0;bottom:0;width:1px;background:var(--gold);opacity:.5}
+
+/* COMPONENTS */
+.btnrow{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:22px}
+.btn{font-family:"Archivo";font-weight:600;font-size:15px;padding:14px 26px;border:1.5px solid var(--charcoal);cursor:pointer;transition:all .3s var(--e-out);text-decoration:none;display:inline-block}
+.btn.p{background:var(--charcoal);color:var(--ivory)}
+.btn.p:hover{transform:translateY(-2px)}
+.btn.g{background:transparent;color:var(--charcoal)}
+.btn.g:hover{background:var(--charcoal);color:var(--ivory)}
+.btn.l{border:none;padding:14px 4px;position:relative}
+.btn.l::after{content:"";position:absolute;inset-inline:4px;bottom:8px;height:1.5px;background:var(--charcoal);transform:scaleX(.4);transform-origin:right;transition:transform .4s var(--e-out)}
+.btn.l:hover::after{transform:scaleX(1)}
+.field{margin-top:22px;max-width:420px}
+.field .fl{font-family:"JetBrains Mono";font-size:10px;letter-spacing:.16em;color:var(--muted);display:block;margin-bottom:8px}
+.field input{width:100%;border:none;border-bottom:1.5px solid var(--hair);background:transparent;padding:8px 0;font-family:"Archivo";font-size:16px;color:var(--charcoal);outline:none;transition:border-color .3s}
+.field input:focus{border-color:var(--charcoal)}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.tag{font-family:"JetBrains Mono";font-size:12px;letter-spacing:.08em;border:1px solid var(--hair);padding:5px 11px;color:var(--espresso)}
+
+/* MOTION table */
+.mtable{width:100%;border-collapse:collapse;margin-top:20px;font-size:14px}
+.mtable td,.mtable th{border-bottom:1px solid var(--hair);padding:12px 8px;text-align:start}
+.mtable th{font-family:"JetBrains Mono";font-size:10px;letter-spacing:.14em;color:var(--muted);font-weight:400}
+.mtable .mono{color:var(--espresso)}
+
+/* ART DIRECTION moodboard (real) */
+.board{position:relative;min-height:520px;margin-top:20px;border:1px solid var(--hair);background:
+  linear-gradient(var(--hair) 1px,transparent 1px) 0 0/100% 32px,
+  linear-gradient(90deg,var(--hair) 1px,transparent 1px) 0 0/32px 100%;background-color:var(--paper);overflow:hidden}
+.chip{position:absolute;background:var(--ivory);border:1px solid var(--charcoal);box-shadow:0 24px 60px -34px #1b181555}
+.chip .cap{position:absolute;top:-9px;inset-inline-start:8px;background:var(--ivory);padding:0 6px;font-family:"JetBrains Mono";font-size:9px;letter-spacing:.12em;color:var(--muted)}
+.chip pre{margin:0;padding:14px 12px;font-family:"JetBrains Mono";font-size:9.5px;line-height:1.7;color:var(--espresso);white-space:pre;overflow:hidden}
+.chip .cm{color:var(--muted)}.chip .kw{color:var(--dust)}.chip .st{color:var(--gold)}
+.b-code{width:min(340px,70vw);top:26px;inset-inline-start:22px;transform:rotate(-2.5deg)}
+.b-git{width:min(300px,66vw);bottom:34px;inset-inline-start:70px;transform:rotate(2deg)}
+.b-git .row{padding:5px 12px;border-bottom:1px solid var(--hair);font-family:"JetBrains Mono";font-size:10px;display:flex;gap:8px}
+.b-git .h{color:var(--gold)}
+.b-proj{width:min(260px,64vw);top:60px;inset-inline-end:26px;transform:rotate(2.4deg);padding:16px}
+.b-proj .big{font-family:"Bodoni Moda";font-size:2rem;line-height:1}
+.plus{position:absolute;width:10px;height:10px}
+.plus::before,.plus::after{content:"";position:absolute;background:var(--gold)}
+.plus::before{inset-inline-start:4.5px;top:0;width:1px;height:10px}.plus::after{top:4.5px;inset-inline-start:0;height:1px;width:10px}
+@media(max-width:760px){.board{min-height:0;padding:0}.chip{position:relative;display:block;width:auto;transform:none;margin:20px;inset:auto}}
+
+/* PROJECTS index */
+.plist{margin-top:24px;border-top:1px solid var(--charcoal)}
+.prow{display:grid;grid-template-columns:40px 1fr auto auto;gap:16px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--hair);transition:padding-inline-start .35s var(--e-out)}
+.prow:hover{padding-inline-start:12px}
+.prow .pn{font-family:"JetBrains Mono";font-size:12px;color:var(--gold)}
+.prow .pt{font-family:"Bodoni Moda";font-size:clamp(1.2rem,3vw,1.9rem)}
+.prow .pt small{font-family:"Amiri";font-size:.6em;color:var(--muted);margin-inline-start:10px}
+.prow .pc{font-family:"JetBrains Mono";font-size:10px;color:var(--muted);letter-spacing:.08em}
+.prow.hero{background:var(--charcoal);color:var(--ivory);padding-inline:16px;border:none}
+.prow.hero .pt{color:var(--ivory)}.prow.hero .pc{color:var(--gold)}
+.prow .badge{font-family:"JetBrains Mono";font-size:9px;letter-spacing:.1em;border:1px solid var(--gold);color:var(--gold);padding:3px 8px}
+
+/* case study skeleton */
+.cs{border:1px solid var(--hair);background:var(--paper);padding:0;margin-top:24px;overflow:hidden}
+.cs .cover2{background:var(--charcoal);color:var(--ivory);padding:40px;position:relative}
+.cs .cover2 .t{font-family:"Bodoni Moda";font-size:clamp(2rem,6vw,4rem);line-height:.95}
+.cs .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.cs .step{padding:22px;border-inline-end:1px solid var(--hair);border-top:1px solid var(--hair)}
+.cs .step .sn{font-family:"JetBrains Mono";font-size:10px;color:var(--gold);letter-spacing:.14em}
+.cs .step h5{font-family:"Bodoni Moda";font-weight:500;font-size:1.2rem;margin:8px 0 4px}
+.cs .step p{font-size:12.5px;color:var(--muted);line-height:1.7}
+
+/* CONTACT */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:2px;border:1px solid var(--charcoal);margin-top:24px}
+@media(max-width:680px){.contact{grid-template-columns:1fr}}
+.contact a{text-decoration:none;color:var(--charcoal);padding:34px;background:var(--paper);transition:background .3s,color .3s}
+.contact a:hover{background:var(--charcoal);color:var(--ivory)}
+.contact .cl{font-family:"JetBrains Mono";font-size:10px;letter-spacing:.2em;color:var(--muted)}
+.contact a:hover .cl{color:var(--gold)}
+.contact .cv{font-family:"Bodoni Moda";font-size:clamp(1.3rem,3.4vw,2rem);margin-top:12px;word-break:break-all}
+.social{margin-top:18px;font-family:"JetBrains Mono";font-size:12px;color:var(--muted)}
+
+.colophon{padding:60px 0;text-align:center;font-family:"JetBrains Mono";font-size:12px;letter-spacing:.16em;color:var(--muted);border-bottom:none}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<div class="frame"></div>
+<i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+<div class="rail railL mono">MURAD — DIGITAL PRODUCT STUDIO</div>
+<div class="rail railR mono">BRAND BOOK / v1.0 · 2026</div>
+
+<div class="page">
+
+<!-- ===== COVER ===== -->
+<section class="cover" id="cover">
+  <div class="top"><span>N 21.5433° · E 39.1728° — JEDDAH, SA</span><span>DOCUMENT — BRAND IDENTITY SYSTEM</span></div>
+  <div>
+    <div class="kick amiri">دليل الهوية البصرية — استوديو رقمي</div>
+    <h1 class="giant">MURAD<sup>®</sup></h1>
+    <div class="subrow"><span>WEB DEVELOPER</span><span>FRONTEND ENGINEER</span><span>UI/UX DESIGNER</span><span>PROBLEM SOLVER</span></div>
+  </div>
+  <div class="bottom"><span>VOL. 01 — VISUAL LANGUAGE</span><span>© MURAD KHODARI 2026</span></div>
+</section>
+
+<!-- ===== TOC ===== -->
+<section id="toc">
+  <div class="head"><h2 class="sec-t">المحتويات</h2><span class="idx">CONTENTS</span></div>
+  <div class="toc">
+    <a href="#manifesto"><span class="n">00</span><span>Manifesto — المبادئ</span><span class="dots"></span><span class="n">↗</span></a>
+    <a href="#logo"><span class="n">01</span><span>Wordmark — العلامة</span><span class="dots"></span><span class="n">↗</span></a>
+    <a href="#color"><span class="n">02</span><span>Color System — اللون</span><span class="dots"></span><span class="n">↗</span></a>
+    <a href="#type"><span class="n">03</span><span>Typography — الطباعة</span><span class="dots"></span><span class="n">↗</span></a>
+    <a href="#grid"><span class="n">04</span><span>Grid & Spacing — الشبكة</span><span class="dots"></span><span class="n">↗</span></a>
+    <a href="#detail"><span class="n">05</span><span>Detail Language — التفاصيل</span><span class="dots"></span><span class="n">↗</span></a>
+    <a href="#components"><span class="n">06</span><span>Components — المكوّنات</span><span class="dots"></span><span class="n">↗</span></a>
+    <a href="#motion"><span class="n">07</span><span>Motion — الحركة</span><span class="dots"></span><span class="n">↗</span></a>
+    <a href="#art"><span class="n">08</span><span>Art Direction — الإخراج</span><span class="dots"></span><span class="n">↗</span></a>
+    <a href="#projects"><span class="n">09</span><span>Projects — المشاريع</span><span class="dots"></span><span class="n">↗</span></a>
+    <a href="#casestudy"><span class="n">10</span><span>Case Study Template</span><span class="dots"></span><span class="n">↗</span></a>
+    <a href="#contact"><span class="n">11</span><span>Contact — التواصل</span><span class="dots"></span><span class="n">↗</span></a>
+  </div>
+</section>
+
+<!-- ===== MANIFESTO ===== -->
+<section id="manifesto">
+  <div class="head"><span class="idx">00 — MANIFESTO</span></div>
+  <p class="did" style="font-size:clamp(1.6rem,4vw,3rem);line-height:1.25;max-width:20ch">Every page is a poster. Every detail has a reason.</p>
+  <div class="gold-rule"></div>
+  <p class="note amiri" style="font-size:1.25rem;color:var(--espresso);max-width:60ch">لا أبني موقعًا، بل منتجًا رقميًا متكاملًا. الطباعة تقود، الفراغ يتنفّس، والتفاصيل تصنع الفرق. هوية واحدة بلغتين، ومعيار عالمي في كل بكسل.</p>
+</section>
+
+<!-- ===== LOGO ===== -->
+<section id="logo">
+  <div class="head"><span class="idx">01 — WORDMARK</span><h2 class="sec-t">العلامة</h2></div>
+  <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+    <span class="did" style="font-size:clamp(3rem,12vw,8rem);font-weight:500;letter-spacing:-.02em">MURAD</span>
+    <span class="mono" style="color:var(--gold);font-size:1rem;vertical-align:super">®</span>
+  </div>
+  <p class="note" style="margin-top:20px">العلامة نصّية بخط Bodoni Moda، بوزن متوسط وتتبّع سالب خفيف، مع علامة <span class="mono" style="color:var(--gold)">®</span> ذهبية صغيرة كتوقيع. مساحة حماية = ارتفاع الحرف «M» حول العلامة. تظهر بلونين فقط: <b>Charcoal</b> على فاتح، أو <b>Ivory</b> على داكن. لا تُدوّر، لا تُظلّل، لا تُلوّن خارج التوكنز.</p>
+</section>
+
+<!-- ===== COLOR ===== -->
+<section id="color">
+  <div class="head"><span class="idx">02 — COLOR SYSTEM</span><h2 class="sec-t">اللون</h2></div>
+  <p class="note">بالِت صغيرة مقصودة. كل لون بوظيفة واحدة. الاستراتيجية: محايدات دافئة + ذهب ≤ 5% كتأكيد. اللون لا يصرخ — الطباعة والفراغ يقودان.</p>
+  <div class="swatches" style="margin-top:34px">
+    <div class="sw" style="background:#1B1815;color:#F2ECE0"><div class="nm did">Charcoal</div><div><div class="hx">#1B1815</div><div class="ro">الحبر · العناوين · القيادة</div></div></div>
+    <div class="sw" style="background:#3C2E26;color:#F2ECE0"><div class="nm did">Espresso</div><div><div class="hx">#3C2E26</div><div class="ro">العُمق · الطبقات</div></div></div>
+    <div class="sw" style="background:#F2ECE0;color:#1B1815"><div class="nm did">Warm Ivory</div><div><div class="hx">#F2ECE0</div><div class="ro">الخلفية · التنفّس</div></div></div>
+    <div class="sw" style="background:#96A9B6;color:#1B1815"><div class="nm did">Dust Blue</div><div><div class="hx">#96A9B6</div><div class="ro">توازن بارد نادر</div></div></div>
+    <div class="sw" style="background:#B49468;color:#1B1815"><div class="nm did">Champagne</div><div><div class="hx">#B49468</div><div class="ro">تأكيد خافت · خطوط</div></div></div>
+  </div>
+  <div class="dodont">
+    <div class="dd yes"><h4>DO ✓</h4><ul><li>Charcoal للنص على Ivory (تباين عالٍ)</li><li>الذهب للخطوط والعلامات والأرقام فقط</li><li>Espresso/Charcoal كخلفية لأقسام Poster داكنة</li></ul></div>
+    <div class="dd no"><h4>DON'T ✕</h4><ul><li>الذهب كنص أساسي (تباين منخفض)</li><li>إضافة لون خارج التوكنز</li><li>تدرّجات نيون أو ألوان صارخة</li></ul></div>
+  </div>
+</section>
+
+<!-- ===== TYPE ===== -->
+<section id="type">
+  <div class="head"><span class="idx">03 — TYPOGRAPHY</span><h2 class="sec-t">الطباعة</h2></div>
+  <p class="note">الطباعة بطل الهوية. تباين حاد بين العملاق والميكرو. العربي والإنجليزي ندّان صُمّما معًا.</p>
+  <div class="tgiant did" style="margin:24px 0 6px">Aa Éé 24</div>
+  <div class="scale">
+    <div><span class="t mono">GIANT · Bodoni</span><span class="did" style="font-size:clamp(1.6rem,4vw,2.6rem)">One word fills the screen.</span></div>
+    <div><span class="t mono">DISPLAY · Bodoni</span><span class="did" style="font-size:1.7rem">Editorial, high-contrast, timeless.</span></div>
+    <div><span class="t mono">BODY · Archivo</span><span style="font-size:1.05rem">Clean grotesque for UI, labels & body.</span></div>
+    <div><span class="t mono">MICRO · JetBrains Mono</span><span class="mono" style="font-size:.78rem;letter-spacing:.1em">COORDINATES · CAPTIONS · 01 / 24</span></div>
+  </div>
+  <div class="pair">
+    <div class="pc"><div class="lbl u" style="margin-bottom:14px">ARABIC DISPLAY — Aref Ruqaa</div><div class="ar" style="font-size:clamp(2rem,6vw,3.4rem)">مُراد خضري</div><div class="ar" style="font-size:1.4rem;color:var(--espresso);margin-top:8px">أصنع، أصمّم، أحلّ.</div></div>
+    <div class="pc"><div class="lbl u" style="margin-bottom:14px">ARABIC TEXT — Amiri</div><p class="amiri" style="font-size:1.3rem;line-height:2;color:var(--espresso)">هوية واحدة بلغتين. النص العربي مُصمَّم ليعيش بجانب الإنجليزي بنفس الرُّقيّ والهدوء والحضور، لا كترجمة تابعة.</p></div>
+  </div>
+</section>
+
+<!-- ===== GRID & SPACING ===== -->
+<section id="grid">
+  <div class="head"><span class="idx">04 — GRID & SPACING</span><h2 class="sec-t">الشبكة والمسافات</h2></div>
+  <p class="note">شبكة 12 عمودًا، حاوية 1280px، هوامش سخية. الإيقاع الرأسي على أساس 8px. كسر الشبكة مقصود للتأكيد.</p>
+  <div class="griddemo" style="margin-top:26px"><div class="m" style="inset-inline-start:25%"></div><div class="m" style="inset-inline-start:50%"></div><div class="m" style="inset-inline-start:75%"></div></div>
+  <div class="lbl" style="margin-top:34px">SPACING SCALE — 8px base</div>
+  <div class="spacescale">
+    <div><div class="bar" style="width:24px;height:4px"></div><div class="u2">4</div></div>
+    <div><div class="bar" style="width:24px;height:8px"></div><div class="u2">8</div></div>
+    <div><div class="bar" style="width:24px;height:16px"></div><div class="u2">16</div></div>
+    <div><div class="bar" style="width:24px;height:24px"></div><div class="u2">24</div></div>
+    <div><div class="bar" style="width:24px;height:32px"></div><div class="u2">32</div></div>
+    <div><div class="bar" style="width:24px;height:48px"></div><div class="u2">48</div></div>
+    <div><div class="bar" style="width:24px;height:64px"></div><div class="u2">64</div></div>
+    <div><div class="bar" style="width:24px;height:96px"></div><div class="u2">96</div></div>
+    <div><div class="bar" style="width:24px;height:128px"></div><div class="u2">128</div></div>
+  </div>
+</section>
+
+<!-- ===== DETAIL LANGUAGE ===== -->
+<section id="detail">
+  <div class="head"><span class="idx">05 — DETAIL LANGUAGE</span><h2 class="sec-t">التفاصيل</h2></div>
+  <p class="note">خطوط شبكة، إحداثيات، أرقام أقسام، تسميات، قياسات، علامات ذهبية، وميكرو-تايبوغرافي — لغة مستمرة تعطي إحساس دليل هوية عالمي. الفراغ نفسه جزء من الهوية.</p>
+  <div class="tags">
+    <span class="tag">GRID LINES</span><span class="tag">SECTION Nº</span><span class="tag">COORDINATES</span><span class="tag">CAPTIONS</span><span class="tag">MEASUREMENTS</span><span class="tag">FINE BORDERS</span><span class="tag">CORNER MARKS</span><span class="tag">GOLD HAIRLINE</span><span class="tag">MICRO TYPE</span>
+  </div>
+</section>
+
+<!-- ===== COMPONENTS ===== -->
+<section id="components">
+  <div class="head"><span class="idx">06 — COMPONENTS</span><h2 class="sec-t">المكوّنات</h2></div>
+  <div class="lbl">BUTTONS</div>
+  <div class="btnrow"><a class="btn p">شاهد أعمالي ↗</a><a class="btn g">تواصل معي</a><a class="btn l">اقرأ القصة الكاملة ↗</a></div>
+  <div class="lbl" style="margin-top:44px">FORM FIELD — underline only</div>
+  <div class="field"><label class="fl">EMAIL / البريد</label><input type="email" placeholder="name@example.com"></div>
+  <div class="lbl" style="margin-top:44px">TECH TAGS</div>
+  <div class="tags"><span class="tag">NEXT.JS</span><span class="tag">TYPESCRIPT</span><span class="tag">TAILWIND</span><span class="tag">FRAMER MOTION</span><span class="tag">GSAP</span></div>
+</section>
+
+<!-- ===== MOTION ===== -->
+<section id="motion">
+  <div class="head"><span class="idx">07 — MOTION</span><h2 class="sec-t">الحركة</h2></div>
+  <p class="note">بطيئة، ناعمة، سينمائية، هادفة. لا bounce ولا استعراض. Lenis + GSAP + Framer Motion. تحترم prefers-reduced-motion.</p>
+  <table class="mtable">
+    <tr><th>الاسم</th><th>القيمة</th><th>الاستخدام</th></tr>
+    <tr><td>ease-out-expo</td><td class="mono">cubic-bezier(.16,1,.3,1)</td><td>الكشف والانتقالات</td></tr>
+    <tr><td>duration base</td><td class="mono">520ms</td><td>hover, تنقّل</td></tr>
+    <tr><td>duration cinematic</td><td class="mono">1400ms</td><td>image / text reveal</td></tr>
+    <tr><td>parallax</td><td class="mono">≤ 12%</td><td>صور وقصاصات</td></tr>
+  </table>
+</section>
+
+<!-- ===== ART DIRECTION (REAL) ===== -->
+<section id="art">
+  <div class="head"><span class="idx">08 — ART DIRECTION</span><h2 class="sec-t">الإخراج الفني</h2></div>
+  <p class="note">الـ Hero = Moodboard حيّ من عناصر مراد الحقيقية: كود فعلي، Git history حقيقي، ومشاريع فعلية — مرتّبة فنيًا لا عشوائيًا. أول انطباع: استوديو يصنع منتجات رقمية عالمية. <b>لا Placeholder</b> — تُستبدل هذه بلقطات مشاريعك عند البناء.</p>
+  <div class="board">
+    <div class="chip b-code"><span class="cap">components/Stamp.tsx — مطعم 65 (كود حقيقي)</span><pre><span class="cm">/** signature motif — CJK ink-stamps */</span>
+<span class="kw">export function</span> Seal({
+  char, className = <span class="st">""</span>, size = <span class="st">180</span>,
+}) {
+  <span class="kw">return</span> (
+    &lt;span aria-hidden=<span class="st">"true"</span>
+      className=<span class="st">"ink-blend absolute z-0"</span> /&gt;
+  );
+}</pre></div>
+
+    <div class="chip b-git"><span class="cap">git log — TM Facility (حقيقي)</span>
+      <div class="row"><span class="h">e2c55e8</span><span>test update</span></div>
+      <div class="row"><span class="h">5a17993</span><span>Delete pnpm-lock.yaml</span></div>
+      <div class="row"><span class="h">b44cba9</span><span>Update website</span></div>
+      <div class="row"><span class="h">f25a32a</span><span>Initial commit</span></div>
+    </div>
+
+    <div class="chip b-proj"><span class="cap">PROJECT / 01</span><div class="big did">Street<br>Fifty Six</div><div class="mono" style="font-size:9px;color:var(--muted);margin-top:8px">NEXT.JS · i18n · 2026</div></div>
+
+    <i class="plus" style="top:32px;inset-inline-end:40%"></i>
+    <i class="plus" style="bottom:60px;inset-inline-end:30%"></i>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects">
+  <div class="head"><span class="idx">09 — PROJECTS</span><h2 class="sec-t">المشاريع</h2></div>
+  <p class="note">جميع المشاريع الحقيقية (13). الأفضل = Hero Case Study بتفاصيل كاملة، والبقية بنفس الهوية باختصار.</p>
+  <div class="plist">
+    <div class="prow hero"><span class="pn">01</span><span class="pt did">Street Fifty Six <small>مطعم ٦٥</small></span><span class="pc">NEXT.JS · TS · i18n</span><span class="badge">HERO CASE STUDY</span></div>
+    <div class="prow"><span class="pn">02</span><span class="pt did">TM Facility Services <small>خدمات المنشآت</small></span><span class="pc">FULL-STACK · AR/EN</span><span></span></div>
+    <div class="prow"><span class="pn">03</span><span class="pt did">Klick Pay <small>كِلِك</small></span><span class="pc">FINTECH LANDING</span><span></span></div>
+    <div class="prow"><span class="pn">04</span><span class="pt did">FamilyWeek <small>جلساتنا العائلية</small></span><span class="pc">WEB APP · LOCALSTORAGE</span><span></span></div>
+    <div class="prow"><span class="pn">05</span><span class="pt did">DaySky Pro <small>أنيميشن</small></span><span class="pc">CSS · A11Y · MOTION</span><span></span></div>
+    <div class="prow"><span class="pn">06</span><span class="pt did">Networks 101 <small>الشبكات</small></span><span class="pc">EDU · MULTIPAGE</span><span></span></div>
+    <div class="prow"><span class="pn">07</span><span class="pt did">EngPaths <small>التخصصات</small></span><span class="pc">LANDING · TABS</span><span></span></div>
+    <div class="prow"><span class="pn">08</span><span class="pt did">BaseConvert <small>محوّل الأنظمة</small></span><span class="pc">TOOL · OOP JS</span><span></span></div>
+    <div class="prow"><span class="pn">09</span><span class="pt did">Faisal Solutions <small>حلولنا المتكاملة</small></span><span class="pc">BUSINESS LANDING</span><span></span></div>
+    <div class="prow"><span class="pn">10</span><span class="pt did">Sidebar Dashboard <small>هامبرغر</small></span><span class="pc">UI · LOCALSTORAGE</span><span></span></div>
+    <div class="prow"><span class="pn">11</span><span class="pt did">Saudi Nature <small>كاروسيل</small></span><span class="pc">LANDING · RTL</span><span></span></div>
+    <div class="prow"><span class="pn">12</span><span class="pt did">ChronoFlow <small>ستوب واتش</small></span><span class="pc">TOOL · CSS</span><span></span></div>
+    <div class="prow"><span class="pn">13</span><span class="pt did">DinoRun <small>ديناصور</small></span><span class="pc">CANVAS GAME</span><span></span></div>
+  </div>
+</section>
+
+<!-- ===== CASE STUDY TEMPLATE ===== -->
+<section id="casestudy">
+  <div class="head"><span class="idx">10 — CASE STUDY TEMPLATE</span><h2 class="sec-t">قالب المشروع</h2></div>
+  <p class="note">كل مشروع صفحة مستقلة بشخصيته، ضمن نفس النظام: Cover بطولي، ثم الرحلة كاملة.</p>
+  <div class="cs">
+    <div class="cover2"><div class="mono" style="font-size:10px;color:var(--gold);letter-spacing:.16em">CASE STUDY / 01</div><div class="t">Street Fifty Six</div><div class="mono" style="font-size:12px;margin-top:10px;opacity:.7">RESTAURANT · NEXT.JS · BILINGUAL · 2026</div></div>
+    <div class="steps">
+      <div class="step"><div class="sn">01</div><h5>Idea</h5><p>الفكرة والدور والتقنيات.</p></div>
+      <div class="step"><div class="sn">02</div><h5>Challenge</h5><p>المشكلة التي حُلّت.</p></div>
+      <div class="step"><div class="sn">03</div><h5>Process</h5><p>التصميم والتطوير — لقطات حقيقية.</p></div>
+      <div class="step"><div class="sn">04</div><h5>Solution</h5><p>الحل بصور ضخمة وتفاصيل UI.</p></div>
+      <div class="step"><div class="sn">05</div><h5>Results</h5><p>الأثر والنتائج.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="head"><span class="idx">11 — CONTACT</span><h2 class="sec-t">التواصل</h2></div>
+  <p class="note">وسيلتا التواصل الأساسيتان فقط، بحضور راقٍ. لا وسائل اجتماعية في الهوية الأساسية.</p>
+  <div class="contact">
+    <a href="mailto:murad.khodari@gmail.com"><div class="cl">EMAIL — البريد</div><div class="cv did">murad.khodari@gmail.com</div></a>
+    <a href="https://github.com/mur99k" target="_blank"><div class="cl">GITHUB — الأعمال</div><div class="cv did">github.com/mur99k</div></a>
+  </div>
+  <div class="social">Social (footer only, non-prominent): reserved — added later, never part of first impression.</div>
+</section>
+
+<div class="colophon">BRAND BOOK v1.0 — المرجع الرسمي · مستوحى من مستوى الإخراج لا الهوية · © MURAD KHODARI 2026</div>
+
+</div>
+<script>
+  const prog=document.getElementById('prog');
+  addEventListener('scroll',()=>{const h=document.documentElement;const p=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(p*100)+'%';},{passive:true});
+</script>
+</body>
+</html>

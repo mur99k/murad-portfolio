@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MURAD — Art Direction & Design System · v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Prata&family=Archivo:wght@400;500;600;700&family=Amiri:ital@0;1&family=Aref+Ruqaa:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#1B1815;
+    --espresso:#3C2E26;
+    --ivory:#F2ECE0;
+    --paper:#F8F4EA;
+    --dust:#96A9B6;
+    --gold:#B49468;
+    --hair:#D9CFBE;
+    --muted:#6B6154;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--ivory);color:var(--charcoal);font-family:"Archivo",sans-serif;-webkit-font-smoothing:antialiased}
+  .did{font-family:"Bodoni Moda",serif}
+  .prata{font-family:"Prata",serif}
+  .ar{font-family:"Aref Ruqaa",serif}
+  .amiri{font-family:"Amiri",serif}
+  .mono{font-family:"JetBrains Mono",monospace}
+  .u{text-transform:uppercase;letter-spacing:.28em}
+
+  /* إطار دليل الهوية */
+  .frame{position:fixed;inset:18px;border:1px solid var(--hair);pointer-events:none;z-index:5}
+  .frame::before,.frame::after{content:"";position:absolute;background:var(--gold)}
+  .corner{position:fixed;width:9px;height:9px;border:1px solid var(--charcoal);z-index:6}
+  .c1{top:14px;left:14px}.c2{top:14px;right:14px}.c3{bottom:14px;left:14px}.c4{bottom:14px;right:14px}
+  .runmark{position:fixed;left:24px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:10px;letter-spacing:.3em;color:var(--muted);z-index:6}
+  .runmark2{position:fixed;right:24px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-size:10px;letter-spacing:.3em;color:var(--muted);z-index:6}
+
+  .page{max-width:1200px;margin:0 auto;padding:0 clamp(24px,6vw,80px)}
+  section{position:relative;padding:clamp(70px,12vh,140px) 0;border-bottom:1px solid var(--hair)}
+  .lbl{font-family:"JetBrains Mono";font-size:11px;letter-spacing:.22em;color:var(--muted)}
+  .idx{font-family:"JetBrains Mono";font-size:11px;color:var(--gold);letter-spacing:.2em}
+
+  /* ===== COVER ===== */
+  .cover{min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+  .cover .meta-top{display:flex;justify-content:space-between;font-family:"JetBrains Mono";font-size:11px;color:var(--muted);letter-spacing:.14em;margin-bottom:clamp(30px,7vh,70px)}
+  .kicker{font-family:"Amiri";font-size:clamp(1rem,2.4vw,1.5rem);color:var(--espresso);margin-bottom:10px}
+  .giant{font-family:"Bodoni Moda";font-weight:500;font-size:clamp(4.2rem,20vw,15rem);line-height:.82;letter-spacing:-.02em;position:relative}
+  .giant .th{font-weight:400}
+  .giant sup{font-family:"JetBrains Mono";font-size:.09em;font-weight:400;vertical-align:super;color:var(--gold);letter-spacing:0}
+  .subrow{display:flex;flex-wrap:wrap;gap:6px 26px;margin-top:26px;font-family:"JetBrains Mono";font-size:12px;letter-spacing:.12em;color:var(--espresso)}
+  .subrow span{position:relative;padding-inline-start:16px}
+  .subrow span::before{content:"";position:absolute;inset-inline-start:0;top:50%;width:5px;height:5px;background:var(--gold);transform:translateY(-50%) rotate(45deg)}
+  .ar-line{font-family:"Aref Ruqaa";font-size:clamp(1.4rem,4vw,2.6rem);color:var(--charcoal);margin-top:30px;line-height:1.6}
+
+  /* moodboard artifacts */
+  .artifacts{position:absolute;inset:0;pointer-events:none;z-index:-1}
+  .art{position:absolute;border:1px solid var(--charcoal);background:var(--paper);box-shadow:0 24px 60px -30px #1b181540}
+  .art .cap{position:absolute;top:-9px;inset-inline-start:8px;background:var(--ivory);padding:0 6px;font-family:"JetBrains Mono";font-size:9px;letter-spacing:.14em;color:var(--muted)}
+  .art .body{position:absolute;inset:10px;overflow:hidden}
+  .a1{width:230px;height:150px;top:12%;left:4%;transform:rotate(-4deg);opacity:.9}
+  .a2{width:180px;height:230px;bottom:10%;left:12%;transform:rotate(3deg);opacity:.85}
+  .a3{width:250px;height:160px;top:16%;right:5%;transform:rotate(3deg);opacity:.9}
+  .code{font-family:"JetBrains Mono";font-size:9px;line-height:1.7;color:var(--espresso);padding:6px}
+  .code .k{color:var(--dust)}.code .g{color:var(--gold)}
+  .measure{position:absolute;inset-inline:0;bottom:-16px;height:1px;background:var(--hair)}
+  .measure::before,.measure::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--muted)}
+  .measure::before{inset-inline-start:0}.measure::after{inset-inline-end:0}
+  @media(max-width:820px){.artifacts{display:none}}
+
+  /* ===== COLOR ===== */
+  .grid-c{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px;margin-top:40px;border:1px solid var(--charcoal)}
+  .sw{padding:22px 18px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between}
+  .sw .n{font-family:"Bodoni Moda";font-size:1.25rem}
+  .sw .h{font-family:"JetBrains Mono";font-size:11px;letter-spacing:.1em;opacity:.8}
+  .sw small{font-size:11px;opacity:.75;display:block;margin-top:3px}
+
+  /* ===== TYPE ===== */
+  .type-hero{font-family:"Bodoni Moda";font-weight:500;font-size:clamp(3.5rem,16vw,12rem);line-height:.85;letter-spacing:-.02em;margin:10px 0}
+  .scale-row{display:flex;align-items:baseline;gap:20px;border-top:1px solid var(--hair);padding:18px 0}
+  .scale-row .tag{font-family:"JetBrains Mono";font-size:10px;color:var(--muted);width:120px;flex:none;letter-spacing:.1em}
+  .specimen-ar{font-family:"Aref Ruqaa";font-size:clamp(2rem,7vw,4.5rem);line-height:1.5}
+  .specimen-ar2{font-family:"Amiri";font-size:clamp(1.1rem,2.4vw,1.5rem);line-height:2;color:var(--espresso);max-width:60ch}
+  .pairing{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+  @media(max-width:760px){.pairing{grid-template-columns:1fr}}
+  .pcard{border:1px solid var(--hair);padding:26px;background:var(--paper)}
+
+  /* ===== DETAIL LANGUAGE ===== */
+  .detail{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:40px}
+  @media(max-width:760px){.detail{grid-template-columns:1fr}}
+  .demo{border:1px solid var(--charcoal);background:var(--paper);height:240px;position:relative;overflow:hidden}
+  .gridlines{background:
+    linear-gradient(var(--hair) 1px,transparent 1px) 0 0/100% 28px,
+    linear-gradient(90deg,var(--hair) 1px,transparent 1px) 0 0/28px 100%}
+  .coord{position:absolute;font-family:"JetBrains Mono";font-size:9px;color:var(--muted);letter-spacing:.1em}
+  .plus{position:absolute;width:9px;height:9px}
+  .plus::before,.plus::after{content:"";position:absolute;background:var(--gold)}
+  .plus::before{inset-inline-start:4px;top:0;width:1px;height:9px}.plus::after{top:4px;inset-inline-start:0;height:1px;width:9px}
+
+  h2.title{font-family:"Bodoni Moda";font-weight:500;font-size:clamp(2rem,5vw,3.4rem);line-height:1;margin-top:10px}
+  .note{color:var(--muted);max-width:64ch;margin-top:16px;line-height:1.9;font-size:15px}
+  .foot{padding:50px 0;text-align:center;color:var(--muted);font-family:"JetBrains Mono";font-size:11px;letter-spacing:.15em}
+</style>
+</head>
+<body>
+<div class="frame"></div>
+<i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+<div class="runmark mono">MURAD — DIGITAL PRODUCT STUDIO · 2026</div>
+<div class="runmark2 mono">ART DIRECTION & DESIGN SYSTEM / v1</div>
+
+<!-- ================= COVER ================= -->
+<div class="page">
+<section class="cover">
+  <div class="artifacts">
+    <div class="art a1"><span class="cap">LANDING / STREET-56.tsx</span><div class="body"><div class="code"><span class="k">export default</span> <span class="g">function</span> Hero() {<br>&nbsp;&nbsp;<span class="k">return</span> &lt;section className=<span class="g">"hero"</span>&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Street 56&lt;/h1&gt;<br>&nbsp;&nbsp;&lt;/section&gt;<br>}</div></div><div class="measure"></div></div>
+    <div class="art a2"><span class="cap">WIREFRAME / 03</span><div class="body" style="padding:14px"><div style="height:14px;width:60%;background:var(--hair);margin-bottom:10px"></div><div style="height:60px;border:1px solid var(--hair);margin-bottom:10px"></div><div style="height:9px;width:80%;background:var(--hair);margin-bottom:6px"></div><div style="height:9px;width:50%;background:var(--hair)"></div></div></div>
+    <div class="art a3"><span class="cap">DASHBOARD / TM-SERVICES</span><div class="body" style="padding:12px"><div style="display:flex;gap:8px;height:100%"><div style="width:30%;background:var(--hair);opacity:.5"></div><div style="flex:1;display:flex;flex-direction:column;gap:6px"><div style="height:20px;background:var(--dust);opacity:.4"></div><div style="flex:1;border:1px solid var(--hair)"></div></div></div></div><div class="measure"></div></div>
+  </div>
+
+  <div class="meta-top">
+    <span>N 21.5433° · E 39.1728° — JEDDAH, SA</span>
+    <span>FILE 01 / DESIGN LANGUAGE</span>
+  </div>
+
+  <div class="kicker amiri">استوديو رقمي — تصميم وتطوير المنتجات</div>
+  <h1 class="giant">MUR<span class="th">A</span>D<sup>®</sup></h1>
+  <div class="subrow">
+    <span>WEB DEVELOPER</span><span>FRONTEND ENGINEER</span><span>UI/UX DESIGNER</span><span>PROBLEM SOLVER</span>
+  </div>
+  <div class="ar-line ar">أصنع منتجات رقمية بحسٍّ فنّي ومعيار عالمي.</div>
+</section>
+
+<!-- ================= COLOR ================= -->
+<section id="color">
+  <span class="idx">01 — COLOR SYSTEM</span>
+  <h2 class="title">لوحة صغيرة، عميقة، لكل لون سبب.</h2>
+  <p class="note">بالميت مقتصدة عمدًا: فحم دافئ يقود، إسبريسو للعُمق، عاجي دافئ يتنفّس، أزرق مغبّر هادئ كتوازن بارد نادر، وذهب شمبانيا كتأكيد خافت جدًا (خطوط رفيعة وعلامات فقط — لا يُستخدم لنص). كل لون له دور واحد واضح.</p>
+  <div class="grid-c">
+    <div class="sw" style="background:#1B1815;color:#F2ECE0"><div class="n did">Charcoal</div><div class="h">#1B1815<small>الحبر · العناوين · القيادة</small></div></div>
+    <div class="sw" style="background:#3C2E26;color:#F2ECE0"><div class="n did">Espresso</div><div class="h">#3C2E26<small>العمق · الطبقات الثانوية</small></div></div>
+    <div class="sw" style="background:#F2ECE0;color:#1B1815"><div class="n did">Warm Ivory</div><div class="h">#F2ECE0<small>الخلفية · التنفّس</small></div></div>
+    <div class="sw" style="background:#96A9B6;color:#1B1815"><div class="n did">Dust Blue</div><div class="h">#96A9B6<small>توازن بارد نادر</small></div></div>
+    <div class="sw" style="background:#B49468;color:#1B1815"><div class="n did">Champagne</div><div class="h">#B49468<small>تأكيد خافت · خطوط · علامات</small></div></div>
+  </div>
+</section>
+
+<!-- ================= TYPOGRAPHY ================= -->
+<section id="type">
+  <span class="idx">02 — TYPOGRAPHY SYSTEM</span>
+  <h2 class="title">الطباعة تقود التصميم.</h2>
+  <p class="note">إنجليزي Editorial عالي التباين وحضور قوي — أحيانًا كلمة واحدة تملأ الشاشة. عربي فاخر هادئ صُمِّم ليكون ندًّا لا ترجمة. تباين حاد جدًا بين الأحجام.</p>
+
+  <div class="type-hero did">Aa Éé</div>
+  <div class="scale-row"><span class="tag mono">DISPLAY / Bodoni Moda</span><span class="did" style="font-size:2.4rem">Timeless, high-contrast, editorial.</span></div>
+  <div class="scale-row"><span class="tag mono">LABEL / Archivo</span><span style="font-size:1.05rem;letter-spacing:.02em">Clean grotesque for UI, labels, and body text.</span></div>
+  <div class="scale-row"><span class="tag mono">MICRO / JetBrains Mono</span><span class="mono" style="font-size:.8rem;letter-spacing:.1em">COORDINATES · CAPTIONS · MEASUREMENTS · 01 / 24</span></div>
+
+  <div class="pairing">
+    <div class="pcard">
+      <div class="lbl u" style="margin-bottom:14px">ARABIC · DISPLAY — Aref Ruqaa</div>
+      <div class="specimen-ar ar">مُراد خضري</div>
+      <div class="ar" style="font-size:1.4rem;margin-top:10px;color:var(--espresso)">أصنع، أصمّم، أحلّ.</div>
+    </div>
+    <div class="pcard">
+      <div class="lbl u" style="margin-bottom:14px">ARABIC · TEXT — Amiri</div>
+      <p class="specimen-ar2 amiri">هوية واحدة بلغتين. النص العربي هنا ليس مترجمًا بل مُصمَّمًا ليعيش بجانب الإنجليزي بنفس الرُّقيّ والهدوء والحضور — إيقاعٌ راقٍ يقود العين بثقة.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DETAIL LANGUAGE ================= -->
+<section id="detail">
+  <span class="idx">03 — VISUAL & DETAIL LANGUAGE</span>
+  <h2 class="title">التفاصيل تصنع الفرق.</h2>
+  <p class="note">خطوط شبكة رفيعة، حدود دقيقة، إحداثيات، أرقام أقسام، تسميات، قياسات، وميكرو-تايبوغرافي — لغة بصرية تشبه صفحات دليل الهوية والمجلات الفاخرة. الفراغ نفسه جزء من الهوية.</p>
+  <div class="detail">
+    <div class="demo gridlines">
+      <span class="coord" style="top:8px;inset-inline-start:8px">X: 000 / Y: 000</span>
+      <span class="coord" style="bottom:8px;inset-inline-end:8px">FIG. 03.1 — GRID 28px</span>
+      <i class="plus" style="top:28px;inset-inline-start:56px"></i>
+      <i class="plus" style="top:84px;inset-inline-start:140px"></i>
+      <i class="plus" style="bottom:40px;inset-inline-end:60px"></i>
+    </div>
+    <div class="demo" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px">
+      <div class="did" style="font-size:3.2rem;line-height:1">01 — 07</div>
+      <div class="lbl u">SECTION MARKERS</div>
+      <div style="width:60%;height:1px;background:var(--gold);margin-top:8px;position:relative">
+        <span style="position:absolute;left:0;top:-16px" class="mono" style="font-size:9px">↤ 240px ↦</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="foot">STYLE BOARD v1 — للمراجعة · مستوحى من مستوى الإخراج لا الهوية · © MURAD 2026</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>هويات عصرية — مراد خضري</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Unbounded:wght@600;700;800&family=Readex+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Readex Pro",system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+  .mono{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 26px;position:relative;z-index:2}
+  section{min-height:94vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+  .tag{position:absolute;top:18px;right:26px;z-index:5;background:#111;color:#fff;font-size:12px;font-weight:700;padding:6px 12px;border-radius:20px}
+  .badge{display:inline-flex;align-items:center;gap:8px;border-radius:40px;padding:6px 14px;font-size:13px;font-weight:600}
+  .pulse{width:9px;height:9px;border-radius:50%;animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 currentColor}70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+  h1{font-weight:800;line-height:.9;letter-spacing:-.03em;text-wrap:balance}
+  .lead{margin-top:16px;font-size:clamp(1rem,2.2vw,1.2rem);max-width:56ch}
+  .role{margin-top:10px;font-size:14px;letter-spacing:2px}
+  .actions{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{font-weight:700;padding:14px 24px;text-decoration:none;display:inline-block;transition:transform .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .ghost{border:1.5px solid currentColor}
+
+  /* ===== 1) DRENCH كوبالت ===== */
+  .drench{background:#1E36D8;color:#fff}
+  .drench .grain{position:absolute;inset:0;opacity:.10;background:radial-gradient(#fff 1px,transparent 1px) 0 0/26px 26px}
+  .drench h1{font-family:"Unbounded";font-size:clamp(3rem,10vw,7rem)}
+  .drench .badge{border:1.5px solid #fff;color:#fff}
+  .drench .pulse{color:#B6FF3A}
+  .drench .btn-p{background:#fff;color:#1E36D8}
+  .drench .num{position:absolute;left:26px;bottom:40px;font-family:"Unbounded";font-size:clamp(4rem,14vw,10rem);font-weight:800;opacity:.14;line-height:1}
+
+  /* ===== 2) داكن راقٍ + مرجاني ===== */
+  .dark{background:#0D0D10;color:#F1EFE9}
+  .dark .glow{position:absolute;width:640px;height:640px;border-radius:50%;filter:blur(120px);background:#FF5A3C;opacity:.22;top:-160px;left:-120px}
+  .dark .glow2{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(130px);background:#FFB020;opacity:.14;bottom:-180px;right:-100px}
+  .dark h1{font-family:"Bricolage Grotesque";font-size:clamp(3rem,9vw,6rem)}
+  .dark .accent{color:#FF6A45}
+  .dark .badge{border:1.5px solid #3a3a40;color:#F1EFE9}
+  .dark .pulse{color:#FF6A45}
+  .dark .btn-p{background:#FF6A45;color:#0D0D10}
+  .dark .mono{color:#8b8b93}
+
+  /* ===== 3) بلوكات لونية عصرية ===== */
+  .blocks{background:#F3F1EC;color:#161616}
+  .blocks .grid{display:grid;grid-template-columns:1.3fr .7fr;min-height:94vh}
+  @media(max-width:760px){.blocks .grid{grid-template-columns:1fr}}
+  .blocks .left{padding:0 26px;display:flex;flex-direction:column;justify-content:center;max-width:1180px;margin-inline:auto;width:100%}
+  .blocks .right{background:#C7143C;position:relative;overflow:hidden}
+  .blocks .right .b2{position:absolute;top:0;right:0;width:100%;height:45%;background:#1E36D8}
+  .blocks .right .circle{position:absolute;bottom:8%;left:8%;width:120px;height:120px;border-radius:50%;background:#FFC200;border:2px solid #161616;display:flex;align-items:center;justify-content:center;font-family:"Bricolage Grotesque";font-weight:800;font-size:20px}
+  .blocks .right .por{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;opacity:.85}
+  .blocks h1{font-family:"Bricolage Grotesque";font-size:clamp(3rem,8.5vw,6rem)}
+  .blocks .mark{position:relative;display:inline-block}
+  .blocks .mark::after{content:"";position:absolute;right:-2px;left:-2px;bottom:.12em;height:.22em;background:#C7143C;z-index:-1}
+  .blocks .dot{color:#C7143C}
+  .blocks .badge{border:1.5px solid #161616}
+  .blocks .pulse{color:#C7143C}
+  .blocks .btn-p{background:#161616;color:#fff}
+
+  .picker{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:50;background:#fff;border:1.5px solid #111;border-radius:40px;padding:8px 10px;display:flex;gap:8px;font-size:13px;box-shadow:0 6px 30px #0002}
+  .picker a{text-decoration:none;color:#111;padding:6px 12px;border-radius:30px;font-weight:600}
+  .picker a:hover{background:#111;color:#fff}
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section id="s1" class="drench">
+  <div class="grain"></div>
+  <span class="tag">١ — تشبّع كوبالت (Drench)</span>
+  <div class="num">MK</div>
+  <div class="wrap">
+    <div class="badge"><span class="pulse">●</span> متاح للعمل الآن</div>
+    <h1 style="margin-top:20px">مُراد<br>خضري.</h1>
+    <div class="role mono">FRONTEND DEVELOPER · مطوّر واجهات</div>
+    <p class="lead">أبني مواقع وتجارب رقمية تلفت النظر — بأداء وهوية لا تُنسى.</p>
+    <div class="actions"><a class="btn btn-p">شاهد أعمالي ↗</a><a class="btn ghost" style="color:#fff">تواصل</a></div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="s2" class="dark">
+  <div class="glow"></div><div class="glow2"></div>
+  <span class="tag">٢ — داكن راقٍ + وهج مرجاني</span>
+  <div class="wrap">
+    <div class="badge"><span class="pulse">●</span> متاح للعمل الآن</div>
+    <h1 style="margin-top:20px">أبني واجهات<br><span class="accent">لا تُنسى</span>.</h1>
+    <div class="role mono">مُراد خضري · FRONTEND DEVELOPER</div>
+    <p class="lead" style="color:#c9c7c1">من الفكرة إلى النشر — مواقع سريعة، أنيقة، وثنائية اللغة.</p>
+    <div class="actions"><a class="btn btn-p">شاهد أعمالي ↗</a><a class="btn ghost" style="color:#F1EFE9">تواصل</a></div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="s3" class="blocks">
+  <span class="tag">٣ — بلوكات لونية عصرية</span>
+  <div class="grid">
+    <div class="left">
+      <div class="badge"><span class="pulse">●</span> متاح للعمل الآن</div>
+      <h1 style="margin-top:18px">مُراد <span class="mark">خضري</span><span class="dot">.</span></h1>
+      <div class="role mono" style="color:#5a5c63">FRONTEND DEVELOPER · مطوّر واجهات</div>
+      <p class="lead" style="color:#2c2d31">أبني مواقع وتجارب رقمية تلفت النظر — من الفكرة إلى النشر.</p>
+      <div class="actions"><a class="btn btn-p">شاهد أعمالي ↗</a><a class="btn ghost">تواصل</a></div>
+    </div>
+    <div class="right">
+      <div class="b2"></div>
+      <div class="por">صورتك / لقطة عمل هنا</div>
+      <div class="circle">13</div>
+    </div>
+  </div>
+</section>
+
+<div class="picker">
+  <span style="align-self:center;font-weight:700;padding:0 6px">اختر:</span>
+  <a href="#s1">١ كوبالت</a><a href="#s2">٢ داكن</a><a href="#s3">٣ بلوكات</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>معاينة تصميم معرض مراد خضري</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Readex+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;            /* أبيض نقي (تصحيح Impeccable: لا كريمي) */
+    --surface:#F5F5F6;
+    --ink:#16171A;
+    --muted:#5A5C63;
+    --line:#E6E6E8;
+    --accent:#C11E4A;        /* الافتراضي: توتي عنّابي فاخر */
+    --on-accent:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"Readex Pro",system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+  .lat{font-family:"Bricolage Grotesque",sans-serif}
+  .mono{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+  /* مبدّل الألوان */
+  .swatchbar{position:fixed;top:14px;left:14px;z-index:50;display:flex;gap:8px;background:#fff;border:1.5px solid var(--ink);padding:8px;border-radius:10px}
+  .swatchbar b{font-size:12px;align-self:center;margin-inline:4px}
+  .sw{width:26px;height:26px;border-radius:6px;border:2px solid var(--ink);cursor:pointer}
+
+  /* NAV */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1.5px solid var(--ink)}
+  .logo{font-weight:700;font-size:20px;letter-spacing:-.02em}
+  .logo .dot{color:var(--accent)}
+  .nav-links{display:flex;gap:22px;align-items:center;font-size:15px;color:var(--muted)}
+  .nav-links a{color:inherit;text-decoration:none}
+  .nav-links a:hover{color:var(--ink)}
+  .lang{border:1.5px solid var(--ink);border-radius:40px;padding:4px 12px;font-weight:600;color:var(--ink)}
+  .cta{background:var(--ink);color:#fff;font-weight:600;padding:9px 16px;text-decoration:none}
+
+  /* HERO */
+  .hero{position:relative;padding:70px 0 40px;overflow:hidden}
+  .dots{position:absolute;inset:0;background:radial-gradient(#16171A12 1.2px,transparent 1.2px) 0 0/24px 24px;opacity:.6;pointer-events:none}
+  .badge{position:relative;display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ink);border-radius:40px;padding:6px 14px;font-size:13px;font-weight:600}
+  .pulse{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in oklab,var(--accent),transparent 40%)}70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+  h1{position:relative;font-weight:800;font-size:clamp(3rem,9vw,5.5rem);line-height:.92;letter-spacing:-.03em;margin-top:22px;text-wrap:balance}
+  .mark{position:relative;display:inline-block}
+  .mark::after{content:"";position:absolute;right:-2px;left:-2px;bottom:.12em;height:.22em;background:var(--accent);opacity:.9;z-index:-1}
+  h1 .dot{color:var(--accent)}
+  .role{position:relative;margin-top:12px;font-size:15px;letter-spacing:2px;color:var(--muted)}
+  .lead{position:relative;margin-top:16px;font-size:clamp(1rem,2.2vw,1.2rem);max-width:60ch;color:#2c2d31}
+  .actions{position:relative;margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn-primary{background:var(--accent);color:var(--on-accent);font-weight:700;padding:14px 24px;text-decoration:none;transition:transform .2s}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{border:1.5px solid var(--ink);color:var(--ink);font-weight:600;padding:14px 24px;text-decoration:none}
+  .statbox{position:absolute;top:70px;left:0;width:160px;height:160px;background:var(--accent);color:var(--on-accent);border:1.5px solid var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .statbox .n{font-family:"Bricolage Grotesque";font-size:56px;font-weight:800;line-height:1}
+  .statbox .l{font-size:13px;font-weight:600}
+  @media(max-width:760px){.statbox{display:none}}
+
+  /* TICKER */
+  .ticker{background:var(--ink);color:var(--bg);padding:12px 0;overflow:hidden;white-space:nowrap;margin-top:20px}
+  .ticker div{display:inline-block;animation:scroll 22s linear infinite;font-family:"JetBrains Mono";font-size:13px;letter-spacing:2px}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* WORK */
+  .work{padding:60px 0}
+  .work h2{font-family:"Bricolage Grotesque";font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;letter-spacing:-.02em;margin-bottom:24px}
+  .grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .proj{border:1.5px solid var(--ink);text-decoration:none;color:var(--ink);display:flex;flex-direction:column;transition:transform .2s}
+  .proj:hover{transform:translateY(-4px)}
+  .proj .thumb{height:150px;display:flex;align-items:flex-end;padding:16px;font-family:"Bricolage Grotesque";font-weight:800;font-size:22px}
+  .proj .meta{padding:12px 16px;display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+  .p1 .thumb{background:var(--ink);color:#fff}
+  .p2{background:var(--accent);color:var(--on-accent)}
+  .p2 .thumb{color:var(--on-accent)}
+  .p2 .meta{color:color-mix(in oklab,var(--on-accent),transparent 25%)}
+
+  .note{max-width:1180px;margin:10px auto 50px;padding:16px 24px;border:1px dashed var(--line);color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+
+<div class="swatchbar">
+  <b>اللون:</b>
+  <div class="sw" style="background:#C11E4A" title="توتي عنّابي" onclick="setAccent('#C11E4A','#fff')"></div>
+  <div class="sw" style="background:#1E46E5" title="كوبالت" onclick="setAccent('#1E46E5','#fff')"></div>
+  <div class="sw" style="background:#E4531B" title="برتقالي محروق" onclick="setAccent('#E4531B','#fff')"></div>
+  <div class="sw" style="background:#0A0A0A" title="أسود مطلق" onclick="setAccent('#111111','#fff')"></div>
+</div>
+
+<div class="wrap">
+  <nav>
+    <div class="logo">مُراد خضري<span class="dot">.</span></div>
+    <div class="nav-links">
+      <a href="#">الأعمال</a><a href="#">عنّي</a><a href="#">الخدمات</a>
+      <span class="lang">EN / ع</span>
+      <a href="#" class="cta">تواصل</a>
+    </div>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="dots"></div>
+  <div class="wrap">
+    <div class="badge"><span class="pulse"></span> متاح للعمل الآن</div>
+    <h1>مُراد <span class="mark">خضري</span><span class="dot">.</span></h1>
+    <div class="role mono">FRONTEND DEVELOPER · مطوّر واجهات وتجارب رقمية</div>
+    <p class="lead">أبني مواقع وتجارب رقمية تلفت النظر — بأداء وسلاسة وهوية لا تُنسى. من الفكرة إلى النشر.</p>
+    <div class="actions">
+      <a href="#" class="btn-primary">شاهد أعمالي ↗</a>
+      <a href="#" class="btn-ghost">تواصل معي</a>
+    </div>
+    <div class="statbox">
+      <div class="n lat">13</div>
+      <div class="l">مشروعًا مكتملًا</div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker"><div>&nbsp;REACT&nbsp;·&nbsp;NEXT.JS&nbsp;·&nbsp;TYPESCRIPT&nbsp;·&nbsp;TAILWIND&nbsp;·&nbsp;WEBGL&nbsp;·&nbsp;UI/UX&nbsp;·&nbsp;REACT&nbsp;·&nbsp;NEXT.JS&nbsp;·&nbsp;TYPESCRIPT&nbsp;·&nbsp;TAILWIND&nbsp;·&nbsp;WEBGL&nbsp;·&nbsp;UI/UX&nbsp;·&nbsp;</div></div>
+
+<section class="work">
+  <div class="wrap">
+    <h2>أعمال مختارة</h2>
+    <div class="grid">
+      <a href="#" class="proj p1">
+        <div class="thumb">Street Fifty Six</div>
+        <div class="meta"><span>موقع مطعم · Next.js · ثنائي اللغة</span><span>2026 ↗</span></div>
+      </a>
+      <a href="#" class="proj p2">
+        <div class="thumb">TM Facility Services</div>
+        <div class="meta"><span>Full-Stack · عربي/EN · Vercel</span><span>2026 ↗</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="note">
+  ✅ هذه معاينة ثابتة (بلا خادم). الخطوط حقيقية: <b>Bricolage Grotesque</b> (لاتيني) + <b>Readex Pro</b> (عربي) — كلاهما خارج قائمة Impeccable المرفوضة. الخلفية أبيض نقي وفق Impeccable. جرّب أزرار اللون أعلى اليسار واختر المفضّل.
+</div>
+
+<script>
+  function setAccent(c, on){
+    document.documentElement.style.setProperty('--accent', c);
+    document.documentElement.style.setProperty('--on-accent', on);
+  }
+</script>
+</body>
+</html>
